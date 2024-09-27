@@ -1,0 +1,16 @@
+{% extends 'events/base.html' %}
+<h2>Pending Notices for Approval</h2>
+<ul>
+    {% for notice in notices %}
+        <li>
+            <h3>{{ notice.title }}</h3>
+            <p>{{ notice.description }}</p>
+            <p><strong>Event Date:</strong> {{ notice.event_date }}</p>
+            <p><strong>Registration Deadline:</strong> {{ notice.deadline }}</p>
+            <form action="{% url 'approve_notice' notice.id %}" method="post">
+                {% comment %} {% csrf_token %} {% endcomment %}
+                {% comment %} <button type="submit">Approve</button> {% endcomment %}
+            </form>
+        </li>
+    {% endfor %}
+</ul>

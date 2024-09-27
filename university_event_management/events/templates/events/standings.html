@@ -1,0 +1,30 @@
+{% extends 'events/base.html' %}
+{% block title %}Standings{% endblock %}
+
+{% block content %}
+<h2>Tournament Standings</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Team</th>
+            <th>Games Played</th>
+            <th>Wins</th>
+            <th>Draws</th>
+            <th>Losses</th>
+            <th>Points</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for team in teams %}
+        <tr>
+            <td>{{ team.name }}</td>
+            <td>{{ team.games_played }}</td>
+            <td>{{ team.wins }}</td>
+            <td>{{ team.draws }}</td>
+            <td>{{ team.losses }}</td>
+            <td>{{ team.get_points }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

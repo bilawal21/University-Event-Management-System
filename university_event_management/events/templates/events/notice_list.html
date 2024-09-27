@@ -1,0 +1,19 @@
+{% extends 'events/base.html' %}
+
+{% block title %}Event Notices{% endblock %}
+
+{% block content %}
+<h2>Event Notices</h2>
+
+<div class="notices-list">
+    {% for notice in notices %}
+        <div class="notice-item">
+            <h3>{{ notice.title }}</h3>
+            <p>{{ notice.description }}</p>
+            <p><strong>Event Date:</strong> {{ notice.event_date|date:"F d, Y" }}</p>
+            <p><strong>Registration Deadline:</strong> {{ notice.deadline|date:"F d, Y" }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

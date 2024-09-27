@@ -1,0 +1,28 @@
+{% extends 'events/base.html' %}
+{% load static %}
+
+{% block title %}List of Players{% endblock %}
+
+{% block content %}
+<h2>Registered Players</h2>
+
+<div class="player-list">
+    {% for player in players %}
+        <div class="player-item">
+            <!-- Display the player's image if available -->
+            {% if player.photo %}
+                <img src="{{ player.photo.url }}" alt="{{ player.name }}'s photo" class="player-photo">
+            {% else %}
+                <img src="{% static 'default-avatar.png' %}" alt="Default avatar" class="player-photo">
+            {% endif %}
+            <div class="player-details">
+                <p><strong>Name:</strong> {{ player.name }}</p>
+                <p><strong>Game:</strong> {{ player.game.name }}</p>
+                <p><strong>Age:</strong> {{ player.age }}</p>
+                <p><strong>Class:</strong> {{ player.student_class }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

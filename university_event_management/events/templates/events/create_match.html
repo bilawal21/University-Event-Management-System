@@ -1,0 +1,11 @@
+{% extends 'events/base.html' %}
+{% block title %}Create Match Result{% endblock %}
+
+{% block content %}
+<h2>Create Match Result</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
